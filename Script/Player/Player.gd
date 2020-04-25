@@ -10,6 +10,7 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	update_movement()
+	update_torch()
 	move_and_slide(motion)
 	
 func update_movement():
@@ -27,3 +28,9 @@ func update_movement():
 		motion.x = clamp(motion.x -SPEED, -MAX_SPEED, 0)
 	else:
 		motion.x = lerp(motion.x ,0, FRICTION)
+
+
+func update_torch():
+	if Input.is_action_just_pressed("torch"):
+			$Torch.enabled = !$Torch.enabled
+

@@ -51,6 +51,12 @@ torch={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="BackGround"
+2d_physics/layer_3="Enemies"
+
 [rendering]
 
 environment/default_clear_color=Color( 0, 0, 0, 1 )

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/GFX/PNG/Tiles/tile_536.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GFX/PNG/Tiles/tile_463.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Player/Torch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Script/Character/NPCs/PlayerDetection.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -33,7 +34,9 @@ texture = ExtResource( 2 )
 
 [node name="CameraBody" type="KinematicBody2D" parent="."]
 position = Vector2( 4.61214, 0 )
-rotation = -0.00471767
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -50,7 +53,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Torch" parent="CameraBody" instance=ExtResource( 3 )]
-position = Vector2( 8.585, -1.5 )
+position = Vector2( 11.8913, -1.4844 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraBody"]
 autoplay = "rotate"

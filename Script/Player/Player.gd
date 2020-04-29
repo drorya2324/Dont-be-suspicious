@@ -10,7 +10,6 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	update_movement()
-#	update_torch()
 	move_and_slide(motion)
 	
 func update_movement():
@@ -30,7 +29,10 @@ func update_movement():
 		motion.x = lerp(motion.x ,0, FRICTION)
 
 
-#func update_torch():
-#	if Input.is_action_just_pressed("torch"):
-#			$Torch.enabled = !$Torch.enabled
+# changes to night vision mode, and to dark mode (script: VisionMode)
+# night_vision keys are: "R" , "slash" (?/.)
+func _input(event):
+	if Input.is_action_just_pressed("night_vision"):
+		get_tree().call_group("Interface", "cycle_vision_mode")
+
 

@@ -10,6 +10,7 @@ const WHITE = Color (1,1,1)
 var Player
 
 func _ready():
+	Global.PlayerDtection = self
 	Player = get_node("/root").find_node("Player", true, false)
 
 
@@ -18,8 +19,16 @@ func _process(delta):
 		$Torch.color = RED
 	else:
 		$Torch.color = WHITE
-
-
+	
+	
+# Being called by VisionMode
+func Torch_visibility(booli):
+	if booli == true:
+		$Torch.visible = true
+	elif booli == false:
+		$Torch.visible = false
+	
+	
 #field of view
 func Player_in_FOV():
 	var npc_facing_direction = Vector2(1,0).rotated(global_rotation)

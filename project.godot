@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Script/Global.gd"
+CombinationGenerator="*res://Script/CombinationGenerator.gd"
 
 [input]
 

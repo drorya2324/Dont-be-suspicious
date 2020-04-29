@@ -6,6 +6,7 @@
 [ext_resource path="res://Script/Character/Soldier.gd" type="Script" id=4]
 
 [node name="Soldier" instance=ExtResource( 1 )]
+collision_mask = 3
 script = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
@@ -17,4 +18,9 @@ offset = Vector2( -2, 0 )
 [node name="Timer" type="Timer" parent="." index="4"]
 wait_time = 3.0
 one_shot = true
+
+[node name="Stall" type="Timer" parent="." index="5"]
+wait_time = 0.75
+one_shot = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Stall" to="." method="_on_Stall_timeout"]

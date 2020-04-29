@@ -35,9 +35,10 @@ func navigate():
 func move():
 	look_at(path[0])
 	motion = (path[0] - position).normalized() * (MAX_SPEED * walk_speed)
-	if is_on_wall():
-		make_path()
 	move_and_slide(motion)
+	if is_on_wall():
+	#	make_path()
+		$Stall.start()
 	
 
 
@@ -52,5 +53,10 @@ func update_path():
 
 
 
+
 func _on_Timer_timeout():
 	make_path()
+
+
+func _on_Stall_timeout():
+	move_and_slide(motion)

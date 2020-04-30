@@ -14,10 +14,10 @@ func _ready():
 	color = DARK
 
 
-
 func _process(delta):
 	update_CooldownBar()
 
+# Being called by Player.gd (_input)
 func cycle_vision_mode():
 	if color == NIGHTVISION:
 		DARK_mode()
@@ -47,11 +47,12 @@ func NIGHTVISION_mode():
 	$NightVision.stream = load ("res://Assets/SFX/nightvision.wav")
 	$NightVision.play()
 
+
 func update_CooldownBar():
 	if $Timer.time_left != 0:
 		Global.CooldownBar.update($Timer.time_left)
 
-			
+
 
 func _on_Timer_timeout():
 	$Timer.stop()

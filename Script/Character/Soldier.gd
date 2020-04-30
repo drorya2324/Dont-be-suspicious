@@ -49,9 +49,6 @@ func update_path():
 			$Timer.start()
 	else:
 		path.remove(0)
-	
-
-
 
 
 func _on_Timer_timeout():

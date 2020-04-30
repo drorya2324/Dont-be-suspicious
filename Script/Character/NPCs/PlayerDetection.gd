@@ -21,7 +21,7 @@ func _process(delta):
 		$Torch.color = WHITE
 	
 	
-# Being called by VisionMode
+# Being called by VisionMode ( DARK_mode , NIGHTVISION_mode )
 func Torch_visibility(booli):
 	if booli == true:
 		$Torch.visible = true

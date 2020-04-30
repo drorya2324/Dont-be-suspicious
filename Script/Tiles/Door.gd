@@ -8,6 +8,7 @@ func _on_Door_body_entered(body):
 	else:
 		open()
 
+# Being called by LockedDoor.gd (_on_Numpad_combination_correct)
 func open():
 	$DoorAnimation.play("open")
 

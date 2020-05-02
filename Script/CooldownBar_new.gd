@@ -1,9 +1,10 @@
-extends CanvasLayer
+extends ProgressBar
+
 
 func _ready():
 	Global.CooldownBar = self
-	$ProgressBar.show()
+	show()
 
 # Being called by VisionMode.gd (update_CooldownBar)
-func update(time_left):
-	$ProgressBar.value = time_left
+func updating(time_left):
+	value = time_left

@@ -11,7 +11,7 @@ size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 12
 font_data = ExtResource( 1 )
 
 [resource]

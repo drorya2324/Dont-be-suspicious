@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Tiles/Interface/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerTL.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GFX/Interface/PNG/dotRed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GFX/Interface/PNG/dot_shadow.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerBL.png" type="Texture" id=5]
+[ext_resource path="res://Script/CooldownBar_new.gd" type="Script" id=6]
+[ext_resource path="res://Script/SuspicionMeter.gd" type="Script" id=7]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Susupicion" type="NinePatchRect" parent="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -214.0
+margin_top = -50.0
+margin_right = -10.0
+margin_bottom = -10.0
+texture = ExtResource( 2 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Susupicion"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 7.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Susupicion/CenterContainer"]
+margin_left = 22.0
+margin_right = 172.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Susupicion/CenterContainer/HBoxContainer"]
+margin_top = 6.0
+margin_right = 78.0
+margin_bottom = 20.0
+text = "Suspicion"
+
+[node name="VSeparator" type="VSeparator" parent="Control/Susupicion/CenterContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 82.0
+margin_right = 122.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="SuspicionMeter" type="TextureProgress" parent="Control/Susupicion/CenterContainer/HBoxContainer" groups=[
+"suspicionmeter",
+]]
+margin_left = 126.0
+margin_right = 150.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 24, 27 )
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="Cooldown" type="NinePatchRect" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -220.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Cooldown"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Cooldown/CenterContainer"]
+margin_left = 16.0
+margin_right = 196.0
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="Control/Cooldown/CenterContainer/HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 48.0
+theme = ExtResource( 1 )
+text = "NightVision
+Cooldown
+"
+
+[node name="VSeparator" type="VSeparator" parent="Control/Cooldown/CenterContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 96.0
+margin_right = 126.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 30, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Cooldown/CenterContainer/HBoxContainer"]
+margin_left = 130.0
+margin_right = 180.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Control/Cooldown/CenterContainer/HBoxContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 50.0
+margin_bottom = 4.0
+
+[node name="CooldownBar" type="ProgressBar" parent="Control/Cooldown/CenterContainer/HBoxContainer/VBoxContainer" groups=[
+"cooldown",
+]]
+modulate = Color( 0.517647, 0.937255, 0.360784, 1 )
+margin_top = 8.0
+margin_right = 50.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 50, 20 )
+max_value = 5.0
+percent_visible = false
+script = ExtResource( 6 )
+
+[node name="HSeparator2" type="HSeparator" parent="Control/Cooldown/CenterContainer/HBoxContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 32.0
+margin_right = 50.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 10 )

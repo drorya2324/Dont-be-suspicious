@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/GFX/Tilesheet/tilesheet_complete.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Tiles/VisionMode.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Tiles/CooldownBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Tiles/GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -443,8 +443,6 @@ position = Vector2( 97.4111, -94.8883 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
 
-[node name="CooldownBar" parent="Player/Camera2D" instance=ExtResource( 5 )]
-
 [node name="Cameras" type="Node" parent="."]
 
 [node name="Guards" type="Node" parent="."]
@@ -454,3 +452,5 @@ zoom = Vector2( 0.7, 0.7 )
 [node name="LockedDoors" type="Node" parent="."]
 
 [node name="Computers" type="Node" parent="."]
+
+[node name="GUI" parent="." instance=ExtResource( 6 )]

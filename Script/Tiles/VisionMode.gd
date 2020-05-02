@@ -34,15 +34,19 @@ func DARK_mode():
 	if $Timer.time_left ==0 :
 		$Timer.start()
 	color = DARK
-	Global.PlayerDtection.Torch_visibility(true)
+	#Global.PlayerDtection.Torch_visibility(true)
 	# sound effects:
 	$NightVision.stream = load ("res://Assets/SFX/nightvision_off.wav")
 	$NightVision.play()
-
+	get_tree().call_group("lights", "show")
+	get_tree().call_group("labels", "hide")
+	
 func NIGHTVISION_mode():
 	$Timer.stop()
 	color = NIGHTVISION
-	Global.PlayerDtection.Torch_visibility(false)
+	#Global.PlayerDtection.Torch_visibility(false)
+	get_tree().call_group("lights","hide")
+	get_tree().call_group("labels", "show")
 	# sound effects:
 	$NightVision.stream = load ("res://Assets/SFX/nightvision.wav")
 	$NightVision.play()
@@ -50,7 +54,8 @@ func NIGHTVISION_mode():
 
 func update_CooldownBar():
 	if $Timer.time_left != 0:
-		Global.CooldownBar.update($Timer.time_left)
+	#	get_tree().call_group("cooldown","updating")
+		Global.CooldownBar.updating($Timer.time_left)
 
 
 

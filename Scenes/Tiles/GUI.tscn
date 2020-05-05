@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Tiles/Interface/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerTL.png" type="Texture" id=2]
 [ext_resource path="res://Assets/GFX/Interface/PNG/dotRed.png" type="Texture" id=3]
 [ext_resource path="res://Assets/GFX/Interface/PNG/dot_shadow.png" type="Texture" id=4]
 [ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerBL.png" type="Texture" id=5]
 [ext_resource path="res://Script/CooldownBar_new.gd" type="Script" id=6]
 [ext_resource path="res://Script/SuspicionMeter.gd" type="Script" id=7]
+[ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerBR.png" type="Texture" id=8]
+[ext_resource path="res://Script/GUI/DisguiseDisplay.gd" type="Script" id=9]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -19,80 +20,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Susupicion" type="NinePatchRect" parent="Control"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -214.0
-margin_top = -50.0
-margin_right = -10.0
-margin_bottom = -10.0
-texture = ExtResource( 2 )
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="Control/Susupicion"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 7.0
-margin_right = -5.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Susupicion/CenterContainer"]
-margin_left = 22.0
-margin_right = 172.0
-margin_bottom = 27.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Control/Susupicion/CenterContainer/HBoxContainer"]
-margin_top = 6.0
-margin_right = 78.0
-margin_bottom = 20.0
-text = "Suspicion"
-
-[node name="VSeparator" type="VSeparator" parent="Control/Susupicion/CenterContainer/HBoxContainer"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 82.0
-margin_right = 122.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 40, 0 )
-
-[node name="SuspicionMeter" type="TextureProgress" parent="Control/Susupicion/CenterContainer/HBoxContainer" groups=[
-"suspicionmeter",
-]]
-margin_left = 126.0
-margin_right = 150.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 24, 27 )
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 3 )
-fill_mode = 4
-script = ExtResource( 7 )
-
 [node name="Cooldown" type="NinePatchRect" parent="Control"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -220.0
-margin_bottom = 40.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 50.0
 texture = ExtResource( 5 )
 patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -108,8 +49,8 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Cooldown/CenterContainer"]
-margin_left = 16.0
-margin_right = 196.0
+margin_left = 11.0
+margin_right = 191.0
 margin_bottom = 48.0
 
 [node name="Label" type="Label" parent="Control/Cooldown/CenterContainer/HBoxContainer"]
@@ -161,3 +102,86 @@ margin_top = 32.0
 margin_right = 50.0
 margin_bottom = 42.0
 rect_min_size = Vector2( 0, 10 )
+
+[node name="Disguises&Suspicion" type="NinePatchRect" parent="Control"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 220.0
+margin_bottom = 59.0
+theme = ExtResource( 1 )
+texture = ExtResource( 8 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Disguises" type="VBoxContainer" parent="Control/Disguises&Suspicion"]
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 90.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Disguises&Suspicion/Disguises"]
+margin_right = 78.0
+margin_bottom = 14.0
+size_flags_horizontal = 0
+text = "Disguises"
+
+[node name="DisguiseDisplay" type="ItemList" parent="Control/Disguises&Suspicion/Disguises"]
+margin_top = 18.0
+margin_right = 85.0
+margin_bottom = 39.0
+size_flags_vertical = 3
+max_columns = 3
+fixed_column_width = 15
+icon_scale = 0.25
+script = ExtResource( 9 )
+
+[node name="VSeparator2" type="VSeparator" parent="Control/Disguises&Suspicion"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 95.9275
+margin_top = 3.9025
+margin_right = 105.927
+margin_bottom = 154.902
+rect_min_size = Vector2( 10, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Suspicion" type="VBoxContainer" parent="Control/Disguises&Suspicion"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/Disguises&Suspicion/Suspicion"]
+margin_right = 85.0
+margin_bottom = 14.0
+text = "Suspicion"
+
+[node name="SuspicionMeter2" type="TextureProgress" parent="Control/Disguises&Suspicion/Suspicion" groups=[
+"suspicionmeter",
+]]
+margin_top = 18.0
+margin_right = 85.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 24, 27 )
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+script = ExtResource( 7 )

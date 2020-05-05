@@ -11,7 +11,7 @@ func _on_Door_input_event(viewport, event, shape_idx):
 		
 		
 func _on_Door_body_exited(body):
-	if body.collision_layer == 1:
+	if body.collision_layer == 1  or body.collision_layer == 16:
 		can_click = false
 		$CanvasLayer/Numpad.hide()
 

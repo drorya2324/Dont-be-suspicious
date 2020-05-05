@@ -1,6 +1,6 @@
 extends CanvasModulate
 # part of group: Interface
-# Night vision keys are: "R" , "slash" (?/.)
+# Night vision keys are: "R" , "X" 
 
 const DARK = Color("111111")
 const NIGHTVISION = Color("1d6a0b")

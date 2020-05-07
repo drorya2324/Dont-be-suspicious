@@ -2,6 +2,7 @@ extends Area2D
 
 var can_click = false
 
+
 func _on_Door_body_entered(body):
 	if body.collision_layer == 1 or body.collision_layer == 16:
 		can_click = true
@@ -21,3 +22,9 @@ func _on_Door_body_exited(body):
 func _on_Door_input_event(viewport, event, shape_idx):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_click:
 		open()
+
+
+func _on_Computer_combination(numbers,lock_group):
+	$CanvasLayer/Numpad.combination = numbers
+	$Label.text = lock_group
+

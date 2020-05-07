@@ -28,6 +28,7 @@ shape = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ComputerPopup" parent="CanvasLayer" instance=ExtResource( 3 )]
+popup_exclusive = true
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 36, 0 )

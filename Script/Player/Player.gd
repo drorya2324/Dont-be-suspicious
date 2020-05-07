@@ -12,6 +12,8 @@ var disguised = false
 
 
 
+func _ready():
+	Global.Player = self
 
 
 
@@ -34,7 +36,6 @@ func update_movement():
 		motion.x = clamp(motion.x -SPEED, -MAX_SPEED, 0)
 	else:
 		motion.x = lerp(motion.x ,0, FRICTION)
-
 
 # changes to night vision mode, and to dark mode (script: VisionMode)
 # night_vision keys are: "R" , "slash" (?/.)
@@ -69,8 +70,14 @@ func disguise():
 	$Sprite.texture = Global.box_sprite
 	$LightOccluder2D.occluder = Global.box_occluder
 	
-
-
-
+	
 func _on_DisguiseTimer_timeout():
 	reveal()
+
+# Being called by Briefcase.gd
+func Got_Briefcase():
+#	print("got a briefcase!")
+	Global.LootDisplay.update_loot()
+	var loot = Node.new()
+	loot.set_name("briefcase")
+	add_child(loot)

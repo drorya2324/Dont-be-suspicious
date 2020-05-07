@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Tiles/Interface/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerTR.png" type="Texture" id=2]
 [ext_resource path="res://Assets/GFX/Interface/PNG/dotRed.png" type="Texture" id=3]
 [ext_resource path="res://Assets/GFX/Interface/PNG/dot_shadow.png" type="Texture" id=4]
 [ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerBL.png" type="Texture" id=5]
@@ -8,6 +9,7 @@
 [ext_resource path="res://Script/SuspicionMeter.gd" type="Script" id=7]
 [ext_resource path="res://Assets/GFX/Interface/PNG/glassPanel_cornerBR.png" type="Texture" id=8]
 [ext_resource path="res://Script/GUI/DisguiseDisplay.gd" type="Script" id=9]
+[ext_resource path="res://Script/GUI/LootDisplay.gd" type="Script" id=10]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -141,6 +143,7 @@ margin_right = 85.0
 margin_bottom = 39.0
 size_flags_vertical = 3
 max_columns = 3
+same_column_width = true
 fixed_column_width = 15
 icon_scale = 0.25
 script = ExtResource( 9 )
@@ -181,7 +184,56 @@ margin_top = 18.0
 margin_right = 85.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 24, 27 )
+step = 0.5
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
 fill_mode = 4
 script = ExtResource( 7 )
+
+[node name="Loot" type="NinePatchRect" parent="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.7738
+margin_top = -59.3445
+margin_right = 220.774
+margin_bottom = -10.3445
+theme = ExtResource( 1 )
+texture = ExtResource( 2 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Loot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.00002
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Loot/HBoxContainer"]
+margin_top = 12.0
+margin_right = 40.0
+margin_bottom = 26.0
+text = "Loot"
+
+[node name="LootDisplay" type="ItemList" parent="Control/Loot/HBoxContainer"]
+margin_left = 44.0
+margin_right = 200.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+max_columns = 6
+fixed_column_width = 16
+icon_scale = 0.2
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

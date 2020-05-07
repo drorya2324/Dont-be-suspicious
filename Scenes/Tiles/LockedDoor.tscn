@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Tiles/Interface/Theme.tres" type="Theme" id=5]
 
 [node name="LockedDoor" instance=ExtResource( 1 )]
-collision_mask = 21
 script = ExtResource( 2 )
 
 [node name="DoorSprite" parent="." index="1"]
@@ -16,6 +15,7 @@ texture = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
 
 [node name="Numpad" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
+popup_exclusive = true
 
 [node name="Label" type="Label" parent="." index="5" groups=[
 "labels",

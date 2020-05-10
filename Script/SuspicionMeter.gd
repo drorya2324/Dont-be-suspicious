@@ -15,6 +15,8 @@ func player_seen():
 	value +=  suspicion_multiplier 
 	if value == max_value:
 		end_game()
-		
+
+
+
 func end_game():
-	get_tree().quit()
+	get_tree().change_scene("res://Scenes/Levels/GameOverScreen.tscn")

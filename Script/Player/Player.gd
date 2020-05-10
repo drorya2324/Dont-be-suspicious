@@ -14,6 +14,7 @@ var disguised = false
 
 func _ready():
 	Global.Player = self
+	
 
 
 
@@ -50,7 +51,7 @@ func toggle_disguise():
 	if disguised:
 		reveal()
 	elif Global.disguises_count > 0:
-			disguise()
+		disguise()
 
 
 

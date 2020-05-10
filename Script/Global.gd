@@ -1,5 +1,9 @@
 extends Node
 
+
+
+var IntroMessages = "res://JSON files/IntroMessages.json"
+
 var Player
 var CooldownBar
 var PlayerDtection
@@ -16,7 +20,4 @@ var character_occluder = load("res://Scenes/Character/CharacterOccluder.tres")
 #var character_collision = load()
 
 var Level1 = "res://Scenes/Levels/level1.tscn"
-
-
-
 

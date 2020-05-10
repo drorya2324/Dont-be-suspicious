@@ -16,13 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Don't be suspicious"
-run/main_scene="res://Scenes/Levels/Intro.tscn"
+run/main_scene="res://Scenes/Levels/level1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Script/Global.gd"
 CombinationGenerator="*res://Script/CombinationGenerator.gd"
+BackgroundMusic="*res://Scenes/BackgroundMusic.tscn"
 
 [input]
 

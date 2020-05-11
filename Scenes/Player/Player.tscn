@@ -13,5 +13,5 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 
 [node name="DisguiseTimer" type="Timer" parent="." index="3"]
-wait_time = 1.5
+wait_time = 5.0
 [connection signal="timeout" from="DisguiseTimer" to="." method="_on_DisguiseTimer_timeout"]

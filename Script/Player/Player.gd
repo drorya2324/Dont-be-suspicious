@@ -5,12 +5,11 @@ extends "res://Script/Character/TemplateCharacter.gd"
 #const MAX_SPEED = 100
 #const FRICTION = 0.1 #the time to get from MAX_SPEED to 0.
 
-	# disguise causes loocked doors to open automatically
+export var disguise_slowdown = 0.25
 
 var motion = Vector2()
 var disguised = false
-
-
+var velocity_multiplier = 1
 
 func _ready():
 	Global.Player = self
@@ -20,7 +19,7 @@ func _ready():
 
 func _physics_process(delta):
 	update_movement()
-	move_and_slide(motion)
+	move_and_slide(motion * velocity_multiplier)
 	
 func update_movement():
 	look_at(get_global_mouse_position())
@@ -39,14 +38,15 @@ func update_movement():
 		motion.x = lerp(motion.x ,0, FRICTION)
 
 # changes to night vision mode, and to dark mode (script: VisionMode)
-# night_vision keys are: "R" , "slash" (?/.)
+# night_vision key is: "R" 
 func _input(event):
 	if Input.is_action_just_pressed("night_vision"):
 		get_tree().call_group("Interface", "cycle_vision_mode")
 	if Input.is_action_just_pressed("toggle_disguise"):
 		toggle_disguise()
 
-# toggle_disguise keys are: "E" , "Z"
+
+# toggle_disguise key is: "E".
 func toggle_disguise():
 	if disguised:
 		reveal()
@@ -57,6 +57,7 @@ func toggle_disguise():
 
 func reveal():
 	disguised = false
+	velocity_multiplier = 1
 	collision_layer = 1
 	$Sprite.texture = Global.player_sprite
 	$LightOccluder2D.occluder  = Global.character_occluder
@@ -64,6 +65,7 @@ func reveal():
 
 func disguise():
 	disguised = true
+	velocity_multiplier = disguise_slowdown
 	$DisguiseTimer.start()
 	Global.disguises_count -= 1
 	Global.DisguiseDisplay.update_disguises(Global.disguises_count)

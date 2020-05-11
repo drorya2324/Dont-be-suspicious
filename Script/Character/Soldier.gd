@@ -51,14 +51,11 @@ func move():
 	look_at(path[0])
 	motion = (path[0] - global_position).normalized() * (MAX_SPEED * walk_speed) # global_position x1
 #	smoothen_rotation(motion)
-		#rotate(90)
 	move_and_slide(motion)
 	if is_on_wall() or is_on_floor() or is_on_ceiling():
-		rotation_degrees += 90 
-		#move_and_slide(motion)
-		make_path()
+		move_and_slide(motion)
 		
-	#	$Stall.start()
+
 
 
 #func smoothen_rotation(motion):
@@ -78,11 +75,3 @@ func update_path():
 func _on_Timer_timeout():
 	make_path()
 
-
-#func _on_Stall_timeout():
-#	move_and_slide(motion)
-#	if is_on_wall():
-#		make_path()
-		
-
-	

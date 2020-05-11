@@ -10,6 +10,7 @@ var PlayerDtection
 var DisguiseDisplay
 var disguises_count = 3
 var LootDisplay
+var briefcase_count = 0
 
 # Being used by Player.gd
 var box_sprite = load("res://Assets/GFX/PNG/Tiles/tile_129.png")

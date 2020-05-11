@@ -12,7 +12,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="DynamicFont" id=3]
-size = 17
 outline_size = 1
 outline_color = Color( 0.0470588, 0.0117647, 0.0117647, 1 )
 font_data = ExtResource( 2 )

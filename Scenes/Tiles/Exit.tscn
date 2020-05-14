@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Tiles/Interface/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Script/Tiles/Exit.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 152.844, 58.2878 )
+
+[node name="Exit" type="ColorRect"]
+margin_right = 303.0
+margin_bottom = 116.0
+color = Color( 0.0352941, 0.458824, 0.0313726, 0.45098 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 151.106, 58.0081 )
+collision_layer = 0
+collision_mask = 33
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.5
+margin_top = -7.5
+margin_right = 18.5
+margin_bottom = 7.5
+theme = ExtResource( 1 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

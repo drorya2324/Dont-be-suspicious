@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/GFX/Interface/PNG/metalPanel_blue.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Tiles/Interface/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/GFX/Interface/Fonts/kenvector_future.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Script/Levels/WelcomeScreen.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="WelcomeScreen" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+margin_left = 312.0
+margin_top = 150.0
+margin_right = 712.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 400, 300 )
+texture = ExtResource( 1 )
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 20.0
+margin_right = 360.0
+margin_bottom = 159.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.2, 0.168627, 0.168627, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/line_spacing = 2
+custom_constants/shadow_offset_y = 4
+text = "Welcom To Don't Be Suspicious"
+align = 1
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 163.0
+margin_right = 360.0
+margin_bottom = 186.0
+
+[node name="PlayTutorialButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 170, 23 )
+text = "Play Tutorial"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 190.0
+margin_right = 360.0
+margin_bottom = 213.0
+
+[node name="Level1Button" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer2"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 170, 23 )
+text = "Level 1"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 217.0
+margin_right = 360.0
+margin_bottom = 240.0
+
+[node name="QuitGameButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer3"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 170, 23 )
+text = "Quit Game"
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/PlayTutorialButton" to="." method="_on_PlayTutorialButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer2/Level1Button" to="." method="_on_Level1Button_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer3/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]

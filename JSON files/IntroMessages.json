@@ -1,0 +1,20 @@
+{"0":
+  "Welcome to your training camp. Try moving around using [w] [d] [s] [a] keys. Now try to reach the <Exit Platform>."
+  ,"1":
+  "See that moving light? it will instruct you where to go next. reach that wooden door, and click on it to open it. Make sure you are close enough, or else it won't open."
+  ,"2":
+  "Oh, seems like there is a dark corridor ahead. press [R] to switch to <Night Vision Mode>, and get to the end of the corridor."
+  ,"3":
+  "Great job so far! now try and open that steel door"
+  ,"4":
+  "Oh, yeah. you need a code to open that door. Click [Q] to close the number pad, and get the combination from the computer."
+  ,"5":
+  "Yes, here too you'll need to be close enough to click on it. try to reach it from the chair over there. After you memorized the combination, click [Q] to exit the computer screen."
+  ,"6":
+  "Be careful! if you are still in <Night Vision Mode>, you cannot see it, but the camera is looking for you. switch back to <Dark Vision Mode> [R], and you'll see what I mean. Try to get to the next door without getting caught. Remember to get the combination from the computer!"
+  ,"7":
+  "Great! But in this room there is a patrolling guard. try to collect the <Briefcase> without getting detected. Notice that there is a <Suspision Bar> in the top left corner of the screen. Once it's full- you'll get detected and fail the mission."
+  ,"8":
+  "Amazing! you can see the <Briefcase> you collected in the buttom left corner of the screen And you are closer than ever to finishing your training. Do you remember that <Exit Platform> in the first room? Now that you have the <Briefcase>, you'll be able to get on it."
+
+}
